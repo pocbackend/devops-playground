@@ -1,31 +1,31 @@
 pipeline {
-    agent any   // run on any available Jenkins agent
-
+    agent any
     stages {
         stage('Checkout') {
             steps {
-                // Pull the latest code from GitHub
                 checkout scm
             }
         }
-
         stage('Compile') {
             steps {
-                // Compile your Java file
                 sh 'javac src/main/java/com/company/Main.java'
             }
         }
-
         stage('Run') {
             steps {
-                // Run the program
                 sh 'java -cp src/main/java com.company.Main'
             }
         }
-
+        stage('Test') {
+            steps {
+                // Compile the test file with JUnit in the classpath
+                sh 'javac -cp .:junit-4.13.2.jar src/test/java/com/company/MainTest.java'
+                // Run the test
+                sh 'java -cp .:junit-4.13.2.jar:hamcrest-core-1.3.jar:src/test/java org.junit.runner.JUnitCore com.company.MainTest'
+            }
+        }
         stage('Archive') {
             steps {
-                // Save compiled class files as artifacts
                 archiveArtifacts artifacts: 'src/main/java/com/company/*.class', fingerprint: true
             }
         }
