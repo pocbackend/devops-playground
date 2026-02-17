@@ -9,6 +9,6 @@ public class Main {
         System.out.println("**** Pipeline check ****");
         System.out.println("**** Pipeline check Test!!! ****");
         System.out.println("**** Pipeline New!!! ****");
-        System.out.println("**** Pipeline New!!! TEST ****");
+        System.out.println("**** Pipeline New!!! TEST---NEW TEST ****");
     }
 }
