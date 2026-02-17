@@ -7,5 +7,6 @@ public class Main {
         System.out.println("**** Commit 2 ****");
         System.out.println("**** Commit 3 ****");
         System.out.println("**** Pipeline check ****");
+        System.out.println("**** Pipeline check Test!!! ****");
     }
 }
